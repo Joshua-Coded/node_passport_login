@@ -1,7 +1,8 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
-
+const flash = require('connect-flash');
+const session = require('express-session');
 
 const app = express();
 
@@ -23,6 +24,15 @@ app.set('view engine', 'ejs');
 //bodyparser
 app.use(express.urlencoded({ extended: false}))
 
+
+//Express session middleware
+app.use(
+    session({
+      secret: 'secret',
+      resave: true,
+      saveUninitialized: true
+    })
+  );
 //Routes
 
 app.use('/', require('./routes/index'));
