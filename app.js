@@ -24,6 +24,7 @@ mongoose
 
 // EJS
 app.use(expressLayouts);
+app.set('layout', './layouts/layout');
 app.set('view engine', 'ejs');
 
 // Express body parser
